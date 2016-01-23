@@ -46,6 +46,65 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    
+        // hadling EditText edtPanjang
+        edtPanjang.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                //Event Ketika terjadi perubahan pada kolom edtPanjang 
+                //Check value edtPanjang Dengan Methode checkValEditText
+                checkValEditText(edtPanjang);
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+
+        // hadling EditText edtLebar
+        edtLebar.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                //Event Ketika terjadi perubahan pada kolom edtLebar 
+                //Check value edtLebar Dengan Methode checkValEditText
+                checkValEditText(edtLebar);
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
+
+        //Check value edtPanjang Dengan Methode checkValEditText saat awal Activity
+        checkValEditText(edtPanjang);
+        //Check value edtLebar Dengan Methode checkValEditText saat awal Activity
+        checkValEditText(edtLebar);
+
+    }
+
+    // Method Check value Edittesxt
+    private void checkValEditText(EditText edittext) {
+        //get value edittetxt
+        String val = edittext.getText().toString().trim();
+        if (val.length() == 0) {
+            //setEditText
+            edittext.setText("0");
+            //letak kursor di index 1
+            edittext.setSelection(1);
+        }
+
+        //additional option
+        // handling angka 0 di posisi paling depan string
+        String val_2 = edittext.getText().toString().trim();
+        if (val_2.length() > 1 && val_2.substring(0, 1).equals("0")) {
+            //setEditText dengan string index 1 sampai max panjang string
+            edittext.setText(val_2.substring(1,val_2.length()));
+            //letak kursor di index 1
+            edittext.setSelection(1);
+        }
     }
 
     @Override
