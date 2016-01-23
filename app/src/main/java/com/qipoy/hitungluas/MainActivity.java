@@ -31,15 +31,18 @@ public class MainActivity extends AppCompatActivity {
         txtLuas = (TextView) findViewById(R.id.txt_luas);
 
         btnHitung.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
                 String panjang = edtPanjang.getText().toString().trim();
                 String lebar = edtLebar.getText().toString().trim();
 
-                Double p = Double.parseDouble(panjang);
-                Double l = Double.parseDouble(lebar);
+                double p = Double.parseDouble(panjang);
+                double l = Double.parseDouble(lebar);
 
-                Double luas = p * l;
-                txtLuas.setText("Luas = "+luas +" Cm");
+                double luas = p * l;
+
+                txtLuas.setText("Luas = " +luas +" Cm");
+
             }
         });
 
